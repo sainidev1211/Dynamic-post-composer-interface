@@ -1,0 +1,121 @@
+    .post-composer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.composer-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.composer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.composer-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-publish,
+.btn-clear {
+    flex: 1;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-publish {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-publish:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-publish:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.btn-publish:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-clear {
+    background: #f0f0f0;
+    color: #333;
+    border: 2px solid #e0e0e0;
+}
+
+.btn-clear:hover {
+    background: #e8e8e8;
+    transform: translateY(-3px);
+    border-color: #d0d0d0;
+}
+
+.btn-clear:active {
+    transform: translateY(-1px);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .validation-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    @media (max-width: 1024px) {
+        .composer-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+        .composer-left {
+            order: 2;
+        }
+        .composer-right {
+            order: 1;
+        }
+    }
+    @media (max-width: 768px) {
+        .composer-container {
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        .action-buttons {
+            flex-direction: column;
+        }
+        .validation-grid {
+            grid-template-columns: 1fr;
+        }
+    }
